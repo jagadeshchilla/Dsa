@@ -2,26 +2,24 @@ package strings;
 
 public class outerParanthesis {
     public static String removeOuterParentheses(String s) {
-        int openCount = 0;
-        int closeCount = 0;
-        String result = "";
-        int start = 0;
+        StringBuilder res=new StringBuilder();
+        int balance=0;
 
-        for (int i = 0; i < s.length(); i++) {
-            char c = s.charAt(i);
-            if (c == '(') {
-                openCount++;
-            } else if (c == ')') {
-                closeCount++;
+        for(char c:s.toCharArray()){
+            if(c=='('){
+                if(balance>0){
+                    res.append(c);
+                }
+                balance++;
             }
-
-            if (openCount == closeCount) {
-                result += s.substring(start+1, i);
-                start = i+1;
+            else if(c==')'){
+                if(balance>1){
+                    res.append(c);
+                }
+                balance--;
             }
         }
-
-        return result;
+        return res.toString();
     }
 
     public static void main(String[] args) {
