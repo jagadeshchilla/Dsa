@@ -11,8 +11,7 @@ class Test
         String temp = "";
         String ans = "";
 
-        //Iterate the string and keep on adding to form a word
-        //If empty space is encountered then add the current word to the result
+
         while (left <= right)
         {
             char ch = s.charAt(left);
