@@ -11,19 +11,24 @@ class Test
         String temp = "";
         String ans = "";
 
-
+        while(left<=right && s.charAt(left)=='.'){
+            left++;
+        }
+        while(right>=left && s.charAt(right)=='.'){
+            right--;
+        }
         while (left <= right)
         {
             char ch = s.charAt(left);
-            if (ch != ' ')
+            if (ch != '.')
             {
                 temp += ch;
             }
-            else if (ch == ' ')
+            else if (ch == '.')
             {
                 if (!ans.equals(""))
                 {
-                    ans = temp + " " + ans;
+                    ans = temp + "." + ans;
                 }
                 else
                 {
@@ -39,7 +44,7 @@ class Test
         {
             if (!ans.equals(""))
             {
-                ans = temp + " " + ans;
+                ans = temp + "." + ans;
             }
             else
             {
@@ -51,7 +56,7 @@ class Test
     }
     public static void main(String[] args)
     {
-        String st = "TUF is great for interview preparation";
+        String st = "i.like.this.program.very.much";
         System.out.println("Before reversing words: ");
         System.out.println(st);
         System.out.println("After reversing words: ");
